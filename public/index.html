@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock_Paper_Scissor</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1 class="title">Welcome to Rock, Paper and Scissors game</h1>
+
+    <div id="initial">
+        <img height="200" src="./assets/rock.png" alt="Rock">
+        <img height="200" src="./assets/paper.png" alt="Paper">
+        <img height="200" src="./assets/scissor.png" alt="Scissor">
+        <br>
+        <button onclick="createGame()">Create Game</button> 
+        <p>or</p>
+        <input placeholder="Enter Code" type="text" name="" id="roomId" />
+        <button onclick="joinGame()">Join Game</button>
+    </div>
+
+    <div id="gamePlay">
+        <div id="waitingArea"></div>
+        <div id="gameArea" style="display: none;">
+            <div>
+                You:
+                <div id="player1Choice">
+                    <button class="rock" onclick="sendChoice('rock')">Rock</button>
+                    <button class="paper" onclick="sendChoice('paper')">Paper</button>
+                    <button class="scissor" onclick="sendChoice('scissor')">Scissors</button>
+                </div>
+            </div>
+            <div>
+                Opponent:
+                <div id="player2Choice">
+                    <p id="opponentState">Waiting for Opponent</p>
+                </div>
+            </div>
+        </div>
+        <hr/>
+        <div id="winnerArea">
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="./client.js"></script>
+</body>
+</html>
